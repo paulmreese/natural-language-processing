@@ -1,8 +1,24 @@
 var aylienHandler = require('../src/server/aylienApi');
-const app = require('../src/server/index')
+const server = require('../src/server/index')
 const httpMocks = require('node-mocks-http')
 
 describe('Aylien API', () => {
+    /*
+    https://stackoverflow.com/questions/49789886
+    /how-to-correctly-close-express-server-between-tests-using-mocha-and-chai
+    Special Thanks for help understanding the lifecycle method usage to
+    appropriately stop the express server after testing!
+    */
+    //keeps the variable in scope
+    let server
+    beforeAll(() => {
+        //sole export of index
+        server = require('../src/server/index')
+    });
+    afterAll(done => {
+        //close the server after all tests complete!
+        server.close(done);
+    });
     describe('validateURL function', () => {
         test('it should be defined', () => {
           expect(aylienHandler.validateUrl).toBeDefined()
