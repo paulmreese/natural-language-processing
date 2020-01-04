@@ -1,14 +1,77 @@
+// TODO: style instructions and add media queries under 500px
+#instructions {
+    display: inline-block;
+    padding-top: 7px;
+    align-self: center;
+    width: 78%;
+    text-align: center;
+    transition: all 1s ease;
+    font: 200 1.1em/19px sans-serif;
+}
+
 form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 10px 80px;
+    padding: 10px 0;
     max-width: 800px;
 }
 
 input {
     padding: 5px 20px;
-    width: 80%;
+    min-width: 250px;
+    width: 68%;
+    max-width: 400px;
+    font-size: 1em;
     line-height: 16px;
     margin: 10px auto;
+    border: 1px #777 solid;
+    border-radius: 3px;
+    box-shadow: -2px 5px 10px #eee;
+}
+
+input[type='submit'] {
+    font-weight: 200;
+    font-size: 1em;
+    min-width: 230px;
+    width: 66%;
+    max-width: 380px;
+    box-shadow: inset 0 -5px 10px #ddd, -2px 5px 10px #eee;
+}
+
+input[type='submit']:hover {
+    font-weight: 400;
+    background-color: #ebebeb;
+    box-shadow: inset 0 -5px 10px #bbb, -2px 5px 10px #eee;
+}
+
+input[type='submit']:active {
+    font-weight: 400;
+    text-decoration: underline;
+    background-color: #bebebe;
+    box-shadow: inset 0 -5px 10px #9e9e9e, -1px 3px 10px #eee;
+}
+
+//media queries
+@media screen and (max-width: 750px) {
+    #instructions {
+        width: 68%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #instructions {
+        width: 58%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    #instructions {
+        margin-top: 10px;
+        padding: 7px;
+        width: 85%;
+        background-color: #fff;
+        border: 1px solid #444;
+        border-radius: 3px;
+    }
 }

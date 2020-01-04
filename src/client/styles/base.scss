@@ -18,6 +18,7 @@ body {
     align-self: center;
     height: 100vh;
     margin: 0;
+    font-family: sans-serif;
 }
 
 main {
@@ -33,11 +34,4 @@ section {
     width: 100%;
     max-width: 800px;
     @extend %flex-column;
-    p {
-      padding-top: 7px;
-      align-self: center;
-      width: 80%;
-      line-height: 19px;
-      text-align: center;
-    }
 }

@@ -27,11 +27,4 @@ const server = app.listen(8080, function () {
 
 app.post('/result', aylienHandler.validateUrl, aylienHandler.classifyText)
 
-/*  Special thanks for understanding the syntax to close a server
-
-    https://stackoverflow.com/questions/14515954
-    /how-to-properly-close-node-express-server
-*/
-server.close()
-
-module.exports = app
+module.exports = server
