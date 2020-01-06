@@ -1,11 +1,17 @@
 var path = require('path')
-const dotenv = require('dotenv');
 const express = require('express')
-const aylien = require('aylien_textapi')
+const aylienHandler = require('./aylienApi')
 
 const app = express()
+const cors = require('cors');
+//Parse the body of post request:
+//https://stackoverflow.com/questions/44802005/no-body-in-post-request
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 
-dotenv.config();
+//Allow CORS
+app.use(cors())
+
 app.use(express.static('dist'))
 
 console.log(__dirname)
@@ -19,12 +25,4 @@ app.listen(8080, function () {
     console.log('Example app listening on port 8080!')
 })
 
-// set aylien API credentias
-var textapi = new aylien({
-  application_id: process.env.API_ID,
-  application_key: process.env.API_KEY
-});
-
-app.get('/test', function (req, res) {
-    res.send(mockAPIResponse)
-})
+app.post('/result', aylienHandler.classifyText)

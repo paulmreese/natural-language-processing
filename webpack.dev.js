@@ -5,6 +5,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
     entry: './src/client/index.js',
+    //To prevent fs failure
+    //https://stackoverflow.com/questions/40959835/webpack-express-cannot-
+    //resolve-module-fs-request-dependency-is-expression
+    target: "node",
     output: {
       libraryTarget: 'var',
       library: 'Client'
