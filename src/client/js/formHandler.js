@@ -1,7 +1,7 @@
 function handleSubmit(event) {
     event.preventDefault()
     console.log("::: Form Submitted :::")
-    // get text from form field
+    // get text form field
     let formText = document.getElementById('name').value
     fetch('http://localhost:8080/result', {
             method: 'POST',
@@ -14,7 +14,12 @@ function handleSubmit(event) {
     .then(res => res.json())
     .then(function(res) {
         console.log(res)
-        document.getElementById('results').innerHTML = res.message
+        res['categories'].forEach(function(c) {
+            console.log(c);
+            for (const i in c) {
+                document.getElementById('results').innerHTML += `<p>${i}: ${c[i]}</p>`
+            }
+        });
     })
 }
 

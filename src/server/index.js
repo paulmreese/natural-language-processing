@@ -25,4 +25,4 @@ app.listen(8080, function () {
     console.log('Example app listening on port 8080!')
 })
 
-app.post('/result', aylienHandler.classifyText)
+app.post('/result', aylienHandler.validateUrl, aylienHandler.classifyText)
