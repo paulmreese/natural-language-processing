@@ -17,7 +17,10 @@ function handleSubmit(event) {
         res['categories'].forEach(function(c) {
             console.log(c);
             for (const i in c) {
-                document.getElementById('results').innerHTML += `<p>${i}: ${c[i]}</p>`
+                if (i != "links") {
+                    document.getElementById('results').innerHTML += `<p>${i}:` +
+                    ` ${c[i]}</p>`
+                }
             }
         });
     })

@@ -27,7 +27,7 @@ function classifyText(req, res, next) {
     });
     //use aylien classify method, if there is no error
     textapi.classifyByTaxonomy({
-      text: req.body.text,
+      url: req.body.text,
       taxonomy: 'iab-qag'
     }, function(error, response) {
         if (error === null) {
