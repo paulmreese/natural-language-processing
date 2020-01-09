@@ -16,6 +16,7 @@ function handleSubmit(event) {
         console.log(res)
         res['categories'].forEach(function(c) {
             console.log(c);
+            document.getElementById('results').innerHTML = '';
             for (const i in c) {
                 if (i != "links") {
                     document.getElementById('results').innerHTML += `<p>${i}:` +
