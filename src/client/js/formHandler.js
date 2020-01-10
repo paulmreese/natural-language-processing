@@ -15,29 +15,31 @@ function handleSubmit(event) {
     .then(function(res) {
         console.log(res)
         res['categories'].forEach(function(c) {
-            console.log(c);
-            document.getElementById('results').innerHTML = '';
+            //console.log(c);
             /*for (const i in c) {
                 if (i != "links") {
-                    document.getElementById('results').innerHTML += `<p>${i}:` +
+                    document.getElementById('taxonomy').innerHTML += `<p>${i}:` +
                     ` ${c[i]}</p>`
                 }
             }*/
             //alternative to looping through all params, use desired params
             //can remove results initialization as the result!
-            document.getElementById('results').innerHTML =
-                `<tbody id="results">
-                    <tr>
-                        <th scope="row">IAB Category:</th>
-                        <td>${c.label}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Confidence:</th>
-                        <td>${c.confident ? "High" : "Low"} \(${(c.score * 100)
-                            .toFixed(2)}\% Match\)
-                        </td>
-                    </tr>
-                </tbody>`
+            document.getElementById('taxonomy').innerHTML =
+                `<tr>
+                    <th colspan="2" scope="rowgroup">
+                        Classification by Taxonomy
+                    </th>
+                </tr>
+                <tr>
+                    <th scope="row">IAB Category:</th>
+                    <td>${c.label}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Confidence:</th>
+                    <td>${c.confident ? "High" : "Low"} \(${(c.score * 100)
+                        .toFixed(2)}\% Match\)
+                    </td>
+                </tr>`
             //TODO: Add other Aylien API calls to further analyze text
         });
     })
