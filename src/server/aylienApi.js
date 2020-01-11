@@ -22,8 +22,8 @@ function validateUrl(req, res, next) {
 
 function classifyText(req, res, next) {
     // Save extracted text in variable to minimize API calls
-    extractedText = '';
-    combinedResponse = [];
+    let extractedText = '';
+    let combinedResponse = [];
     // set aylien API credentials
     var textapi = new aylien({
         //Set sensitive credentials in a local .env file
@@ -35,30 +35,6 @@ function classifyText(req, res, next) {
         url: req.body.text
     }, function(error, response) {
         if (error === null) {
-
-            /*
-            Based on this thread:
-            https://stackoverflow.com/questions/33527464/node-express-4-send-a-
-            response-after-multiple-api-calls
-            
-            async.each(req.body.object, function(item, callback) {
-                APIObject.sendRequest(item, function(err, result)) {
-                    if (err) {
-                        callback(err);
-                    } else {
-                        merged.push(result);
-                        callback();
-                    }
-                }
-            }, function(err) {
-                if (err) {
-                    res.sendStatus(500);
-                } else {
-                    res.send(merged);
-                }
-            });
-            */
-
             console.log(response);
             extractedText = response.article
             //use aylien classify method, if there is no error
@@ -73,19 +49,22 @@ function classifyText(req, res, next) {
                     response['categories'].forEach(function(c) {
                         console.log(c);
                     });
-                    //actually send data
-                    res.write(JSON.stringify(response))
+                    combinedResponse.push(response);
+                    textapi.sentiment({
+                        text: extractedText,
+                        mode: 'article'
+                    }, function(error, response) {
+                        if (error === null) {
+                            console.log(response);
+                            //res.write(JSON.stringify(response))
+                            combinedResponse.push(response);
+                            res.send(JSON.stringify(combinedResponse));
+                        } else {
+                            console.log(error)
+                        }
+                    });
                 } else {
                     console.log(error)
-                }
-            });
-            textapi.sentiment({
-                text: extractedText,
-                mode: 'article'
-            }, function(error, response) {
-                if (error === null) {
-                    console.log(response);
-                    res.write(JSON.stringify(response))
                 }
             });
         } else {
