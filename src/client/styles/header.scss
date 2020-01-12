@@ -1,3 +1,4 @@
+//TODO: Add media queries for screens under 500px(title crowds logo)
 header {
     display: flex;
     justify-content: space-between;
@@ -5,7 +6,7 @@ header {
     align-self: center;
     flex-direction: row;
     flex-wrap: nowrap;
-    padding: 20px 50px;
+    padding: 15px 50px;
     width: 100%;
     max-width: 960px;
 
@@ -20,7 +21,7 @@ header {
 
     img {
         max-height: 70px;
-        margin: 20px 0 20px 30px;
+        margin: 5px 0 10px 30px;
     }
 
     h1 {

@@ -41,7 +41,8 @@ function handleSubmit(event) {
                     <td>${c.confident ? "High" : "Low"} \(${(c.score * 100)
                         .toFixed(2)}\% Match\)
                     </td>
-                </tr>`
+                </tr>
+                <br />`
             //TODO: Add other Aylien API calls to further analyze text
         });
         document.getElementById('sentiment').innerHTML =
