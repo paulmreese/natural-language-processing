@@ -24,6 +24,7 @@ main {
     flex: 2;
     @extend %flex-column;
     align-items: center;
+    overflow-y: scroll;
 }
 
 section {
