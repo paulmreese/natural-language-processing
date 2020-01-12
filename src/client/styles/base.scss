@@ -1,11 +1,20 @@
 %flex-column {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+//courtesy of https://leaverou.github.io/css3patterns/#lined-paper
+%background-pattern {
+    background-color: #fff;
+    background-image:
+    linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+    linear-gradient(#eee .1em, transparent .1em);
+    background-size: 100% 1.2em;
 }
 
 body {
-    @extend %flex-column;
+    @extend %flex-column, %background-pattern;
     align-self: center;
     min-height: 100vh;
     margin: 0;
