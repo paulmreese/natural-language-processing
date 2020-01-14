@@ -22,7 +22,9 @@ body {
 
 main {
     flex: 2;
-    @extend %flex-column;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     overflow-y: scroll;
 }
@@ -31,9 +33,11 @@ section {
     width: 100%;
     max-width: 800px;
     @extend %flex-column;
-    table {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    p {
+      padding-top: 7px;
+      align-self: center;
+      width: 80%;
+      line-height: 19px;
+      text-align: center;
     }
 }

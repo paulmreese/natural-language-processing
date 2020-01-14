@@ -6,9 +6,12 @@ header {
     align-self: center;
     flex-direction: row;
     flex-wrap: nowrap;
-    padding: 15px 50px;
+    padding: 15px 50px 10px;
     width: 100%;
     max-width: 960px;
+    box-shadow: 90px 6px 10px white;
+    //to have content hide behind header
+    z-index: 2;
 
     div {
         display: inline-flex;

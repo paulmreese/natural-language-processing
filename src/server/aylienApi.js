@@ -6,21 +6,22 @@ dotenv.config();
 //Following middleware conventions for req, res, next
 
 //Validate the input as a URL before passing it on
-function validateUrl(req, res, next) {
+function validateUrl(err, req, res, next) {
+    console.log("checking for text")
     //validate input as a non-empty string
     if (req.body.text && typeof req.body.text === 'string') {
+        console.log("checking URL")
         //check for initial http:// or https://
         if (req.body.text.match(/^https:\/\/.*$/) ||
             req.body.text.match(/^http:\/\/.*$/)) {
                 next();
-            } else {
-                alert('Please enter a valid URL(beginning with "http:\/\/" or ' +
-                    '"https:\/\/")');
             }
+    } else {
+        res.json({ message: err.message});
     }
 }
 
-function classifyText(req, res, next) {
+function classifyText(err, req, res, next) {
     // Save extracted text in variable to minimize API calls
     let extractedText = '';
     let combinedResponse = [];
@@ -61,14 +62,20 @@ function classifyText(req, res, next) {
                             res.send(JSON.stringify(combinedResponse));
                         } else {
                             console.log(error)
+                            next(res.json({ message: err.message}));
+
                         }
                     });
                 } else {
                     console.log(error)
+                    next(res.json({ message: err.message}));
+
                 }
             });
         } else {
             console.log(error)
+            next(res.json({ message: err.message}));
+
         }
     });
 }
