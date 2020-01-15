@@ -55,25 +55,21 @@ function classifyText(err, req, res, next) {
                         text: extractedText,
                         mode: 'article'
                     }, function(error, response) {
-                        if (error === null) {
-                            console.log(response);
+                        if (error === null) {;
                             //res.write(JSON.stringify(response))
                             combinedResponse.push(response);
                             res.send(JSON.stringify(combinedResponse));
                         } else {
-                            console.log(error)
                             next(res.json({ message: err.message}));
 
                         }
                     });
                 } else {
-                    console.log(error)
                     next(res.json({ message: err.message}));
 
                 }
             });
         } else {
-            console.log(error)
             next(res.json({ message: err.message}));
 
         }
