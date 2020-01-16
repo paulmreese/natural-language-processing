@@ -81,7 +81,7 @@ function handleSubmit(event) {
                 </td>
             </tr>`
     })
-    .catch(err => document.getElementById('taxonomy').innerHTML =
+    .catch(err => {(document.getElementById('taxonomy').innerHTML =
         `<tr>
             <th colspan="2" scope="rowgroup" class="analysis-type">
                 <strong>
@@ -89,7 +89,7 @@ function handleSubmit(event) {
                     (beginning with "http:\/\/..." or "https:\/\/...")
                 </strong>
             </th>
-        </tr>`)
+        </tr>`)})
 }
 
 export { handleSubmit }

@@ -6,7 +6,7 @@ dotenv.config();
 //Following middleware conventions for req, res, next
 
 //Validate the input as a URL before passing it on
-function validateUrl(err, req, res, next) {
+function validateUrl(req, res, next) {
     console.log("checking for text")
     //validate input as a non-empty string
     if (req.body.text && typeof req.body.text === 'string') {
@@ -21,7 +21,7 @@ function validateUrl(err, req, res, next) {
     }
 }
 
-function classifyText(err, req, res, next) {
+function classifyText(req, res, next) {
     // Save extracted text in variable to minimize API calls
     let extractedText = '';
     let combinedResponse = [];
@@ -60,18 +60,15 @@ function classifyText(err, req, res, next) {
                             combinedResponse.push(response);
                             res.send(JSON.stringify(combinedResponse));
                         } else {
-                            next(res.json({ message: err.message}));
-
+                            res.status(404).send('Unable to load sentiment')
                         }
                     });
                 } else {
-                    next(res.json({ message: err.message}));
-
+                    res.status(404).send('Unable to load taxonomy')
                 }
             });
         } else {
-            next(res.json({ message: err.message}));
-
+            res.status(404).send('Unable to load extracted article')
         }
     });
 }
