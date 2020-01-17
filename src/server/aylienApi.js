@@ -11,13 +11,16 @@ function validateUrl(req, res, next) {
     //validate input as a non-empty string
     if (req.body.text && typeof req.body.text === 'string') {
         console.log("checking URL")
+        console.log("The Request:" + req)
         //check for initial http:// or https://
         if (req.body.text.match(/^https:\/\/.*$/) ||
             req.body.text.match(/^http:\/\/.*$/)) {
                 next();
-            }
+        } else {
+            res.status(404).send('Invalid URL')
+        }
     } else {
-        res.json({ message: err.message});
+        res.status(404).send('Invalid URL')
     }
 }
 

@@ -89,7 +89,8 @@ function handleSubmit(event) {
                     (beginning with "http:\/\/..." or "https:\/\/...")
                 </strong>
             </th>
-        </tr>`)})
+        </tr>`);
+        document.getElementById('sentiment').innerHTML = ''})
 }
 
 export { handleSubmit }
