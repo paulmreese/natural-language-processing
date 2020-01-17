@@ -1,8 +1,8 @@
-var path = require('path')
-const express = require('express')
-const aylienHandler = require('./aylienApi')
-
-const app = express()
+var path = require('path');
+const express = require('express');
+const aylienHandler = require('./aylienApi');
+const regeneratorRuntime = require("regenerator-runtime"); //To address errors
+const app = express();
 const cors = require('cors');
 //Parse the body of post request:
 //https://stackoverflow.com/questions/44802005/no-body-in-post-request
@@ -26,3 +26,5 @@ app.listen(8080, function () {
 })
 
 app.post('/result', aylienHandler.validateUrl, aylienHandler.classifyText)
+
+module.exports = app

@@ -1,17 +1,19 @@
 const dotenv = require('dotenv');
 const aylien = require('aylien_textapi')
-const async = require('async')
+
 dotenv.config();
 
 //Following middleware conventions for req, res, next
 
 //Validate the input as a URL before passing it on
-function validateUrl(req, res, next) {
+async function validateUrl(req, res, next) {
     console.log("checking for text")
     //validate input as a non-empty string
     if (req.body.text && typeof req.body.text === 'string') {
         console.log("checking URL")
-        console.log("The Request:" + req)
+        //To create a mock request
+        console.log("The Request:" + req.body.text)
+        for (const i in req.body) {console.log(i)}
         //check for initial http:// or https://
         if (req.body.text.match(/^https:\/\/.*$/) ||
             req.body.text.match(/^http:\/\/.*$/)) {
@@ -24,7 +26,7 @@ function validateUrl(req, res, next) {
     }
 }
 
-function classifyText(req, res, next) {
+async function classifyText(req, res, next) {
     // Save extracted text in variable to minimize API calls
     let extractedText = '';
     let combinedResponse = [];
@@ -61,7 +63,7 @@ function classifyText(req, res, next) {
                         if (error === null) {;
                             //res.write(JSON.stringify(response))
                             combinedResponse.push(response);
-                            res.send(JSON.stringify(combinedResponse));
+                            res.status(200).send(JSON.stringify(combinedResponse));
                         } else {
                             res.status(404).send('Unable to load sentiment')
                         }
