@@ -6,7 +6,7 @@ dotenv.config();
 //Following middleware conventions for req, res, next
 
 //Validate the input as a URL before passing it on
-async function validateUrl(req, res, next) {
+function validateUrl(req, res, next) {
     console.log("checking for text")
     //validate input as a non-empty string
     if (req.body.text && typeof req.body.text === 'string') {
@@ -19,10 +19,10 @@ async function validateUrl(req, res, next) {
             req.body.text.match(/^http:\/\/.*$/)) {
                 next();
         } else {
-            res.status(404).send('Invalid URL')
+            res.status(400).send('Invalid URL')
         }
     } else {
-        res.status(404).send('Invalid URL')
+        res.status(400).send('Invalid URL')
     }
 }
 
@@ -63,17 +63,17 @@ async function classifyText(req, res, next) {
                         if (error === null) {;
                             //res.write(JSON.stringify(response))
                             combinedResponse.push(response);
-                            res.status(200).send(JSON.stringify(combinedResponse));
+                            return res.status(200).send(JSON.stringify(combinedResponse));
                         } else {
-                            res.status(404).send('Unable to load sentiment')
+                            res.status(400).send('Unable to load sentiment')
                         }
                     });
                 } else {
-                    res.status(404).send('Unable to load taxonomy')
+                    res.status(400).send('Unable to load taxonomy')
                 }
             });
         } else {
-            res.status(404).send('Unable to load extracted article')
+            res.status(400).send('Unable to load extracted article')
         }
     });
 }

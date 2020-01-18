@@ -11,6 +11,12 @@ function handleSubmit(event) {
             },
             body: JSON.stringify({text: formText})
         })
+    .then(function(response) {
+        if (!response.ok) {
+            throw Error(response.statusText);
+        }
+        return response;
+    })
     .then(res => res.json())
     .then(function(res) {
         console.log(res)
