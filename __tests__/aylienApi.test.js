@@ -1,4 +1,4 @@
-const aylienHandler = require('../src/server/aylienApi');
+var aylienHandler = require('../src/server/aylienApi');
 const app = require('../src/server/index')
 const httpMocks = require('node-mocks-http')
 
@@ -12,7 +12,7 @@ describe('Aylien API', () => {
         })
         test('it should not accept blank input', () => {
             const blankInput = ''
-            const expectedResponse = {}
+            const expectedResponseCode = 400
             const req = httpMocks.createRequest({
                   method: 'POST',
                   mode: 'cors',
@@ -23,13 +23,13 @@ describe('Aylien API', () => {
             })
             const res = httpMocks.createResponse()
             const next = jest.fn()
-            expect(aylienHandler.validateUrl(req, res, next))
-                .toEqual(expectedResponse)
+            aylienHandler.validateUrl(req, res, next)
+            expect(res.statusCode).toBe(expectedResponseCode)
         }),
 
         test('it should reject strings that don\'t begin with "http"', () => {
             const nonHttpInput = 'ab'
-            const expectedResponse = ''
+            const expectedResponseCode = 400
             const req = httpMocks.createRequest({
                   method: 'POST',
                   mode: 'cors',
@@ -40,16 +40,24 @@ describe('Aylien API', () => {
             })
             const res = httpMocks.createResponse()
             const next = jest.fn()
-            expect(aylienHandler.validateUrl(req, res, next))
-                .toEqual(expectedResponse)
+            aylienHandler.validateUrl(req, res, next)
+            expect(res.statusCode).toEqual(expectedResponseCode)
         })
     }),
     describe('classifyText function', () => {
+        test('it should be defined', () => {
+          expect(aylienHandler.classifyText).toBeDefined()
+        })
+        test('it should be a function', () => {
+          expect(typeof aylienHandler.classifyText).toBe('function')
+        })
+        /* This test requires the creation of a mock aylien API
+
         test('it should extract an article from a given URL', () => {
             //test
             const url = 'https://millercenter.org/the-presidency/' +
                         'presidential-speeches/january-18-2001-farewell-address'
-            const output = ''
+            const expectedResponseCode = 200
             const req = httpMocks.createRequest({
                   method: 'POST',
                   mode: 'cors',
@@ -60,7 +68,8 @@ describe('Aylien API', () => {
             })
             const res = httpMocks.createResponse()
             const next = jest.fn()
-            expect(aylienHandler.classifyText(req, res, next)).toEqual(output)
-        })
+            aylienHandler.classifyText(req, res, next).catch(error => console.log(error))
+            expect(res.statusCode).toEqual(expectedResponseCode)
+        })*/
     })
 });

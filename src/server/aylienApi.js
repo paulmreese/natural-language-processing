@@ -26,7 +26,7 @@ function validateUrl(req, res, next) {
     }
 }
 
-async function classifyText(req, res, next) {
+function classifyText(req, res, next) {
     // Save extracted text in variable to minimize API calls
     let extractedText = '';
     let combinedResponse = [];
@@ -63,16 +63,19 @@ async function classifyText(req, res, next) {
                         if (error === null) {;
                             //res.write(JSON.stringify(response))
                             combinedResponse.push(response);
-                            return res.status(200).send(JSON.stringify(combinedResponse));
+                            return next(res.status(200).send(JSON.stringify(combinedResponse)));
                         } else {
+                            console.log(error)
                             res.status(400).send('Unable to load sentiment')
                         }
                     });
                 } else {
+                    console.log(error)
                     res.status(400).send('Unable to load taxonomy')
                 }
             });
         } else {
+            console.log(error)
             res.status(400).send('Unable to load extracted article')
         }
     });

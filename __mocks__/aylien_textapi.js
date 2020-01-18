@@ -5,3 +5,6 @@ const aylien_textapi = {
         }
     }))
 }
+
+/* This mock API functionality has not been implemented, but would be used to
+generate realistic mock responses with actually contacting aylien servers */

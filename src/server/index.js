@@ -21,10 +21,17 @@ app.get('/', function (req, res) {
 })
 
 // designates what port the app will listen to for incoming requests
-app.listen(8080, function () {
+const server = app.listen(8080, function () {
     console.log('Example app listening on port 8080!')
 })
 
 app.post('/result', aylienHandler.validateUrl, aylienHandler.classifyText)
+
+/*  Special thanks for understanding the syntax to close a server
+
+    https://stackoverflow.com/questions/14515954
+    /how-to-properly-close-node-express-server
+*/
+server.close()
 
 module.exports = app
