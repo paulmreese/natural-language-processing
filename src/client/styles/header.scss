@@ -1,6 +1,8 @@
 //TODO: Add media queries for screens under 500px(title crowds logo)
 header {
     width: 100%;
+    display: flex;
+    justify-content: center;
     box-shadow: 90px 6px 10px white;
     //to have content hide behind header
     z-index: 2;
