@@ -67,7 +67,7 @@ Unlike the production build command, this will automatically launch the client a
 npm start
 ```
 
-That's all, your application is ready to accept incoming requests!
+Now your application is ready to accept incoming requests!
 
 ![Display of a successful project setup showing purple-pink frog logo, project title, and basic input form]("https://raw.githubusercontent.com/paulmreese/natural-language-processing/master/Project-Screenshot.png")
 
