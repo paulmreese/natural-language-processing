@@ -53,6 +53,8 @@ Example app listening on port 8080!
 
 Now you're ready to open the `index.html` file in your browser, and submit a URL containing an article for analysis!
 
+![Display of a successful project setup showing purple-pink frog logo, project title, and basic input form](img/Project-Screenshot.png)
+
 #### Development Mode
 
 Most users will not require running the app in development mode, but if you are a developer who intends on creating further functionality in the app, then you may be interested in running the project in development mode. First, use terminal or the command line to access the project directory, then enter
@@ -68,8 +70,6 @@ npm start
 ```
 
 Now your application is ready to accept incoming requests!
-
-![Display of a successful project setup showing purple-pink frog logo, project title, and basic input form](img/Project-Screenshot.png)
 
 ## Tests
 
