@@ -4,7 +4,7 @@ This repo contains an app designed to extract an article from a given link, then
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine. See [deployment](####development-mode) for notes on how to deploy the project for development and testing purposes.
 
 ### Prerequisites
 
@@ -31,7 +31,6 @@ which will download and install all required dependencies for the project. Now, 
 
 ### Running the app
 
-<<<<<<< HEAD
 These instructions assume a typical use case in production mode. If you plan to further develop the files for your own purposes, then you can follow these instructions to start development mode)
 
 To compile the app in production mode(which is the most common use), simply enter the command
@@ -90,12 +89,16 @@ If you'd like to deploy a version of this app online easily, checkout [Netlify](
 ## Built With
 
 [Aylien](https://aylien.com/text-api/) - Natural Language Processing API
+
 [Node.js](https://nodejs.org) - Non-browser JavaScript runtime
+
 [webpack](https://webpack.js.org/) - Code bundling and configuration
+
 [express](https://expressjs.com/) - Web server for Node.js
+
 [Jest](https://jestjs.io/en/) - Code testing
 
 
 ## Special thanks
 
-[PurpleBooth Readme Template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
+[PurpleBooth Readme Template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2) - For making this a better experience for everyone!
