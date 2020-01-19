@@ -19,7 +19,8 @@ function handleSubmit(event) {
     })
     .then(res => res.json())
     .then(function(res) {
-        console.log(res)
+        //Useful in development
+        //console.log(res)
         //initialize taxonomy entries before loop
         document.getElementById('taxonomy').innerHTML =
             `<tr>
@@ -30,6 +31,7 @@ function handleSubmit(event) {
         const taxonomyResponse = res[0];
         const sentimentResponse = res[1];
         (taxonomyResponse.categories).forEach(function(c) {
+            //Useful in development to see all available categories
             //console.log(c);
             /*for (const i in c) {
                 if (i != "links") {

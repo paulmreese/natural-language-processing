@@ -7,7 +7,8 @@ dotenv.config();
 
 //Validate the input as a URL before passing it on
 function validateUrl(req, res, next) {
-    console.log("checking for text")
+    //Useful check for development
+    //console.log("checking for text")
     //validate input as a non-empty string
     if (req.body.text && typeof req.body.text === 'string') {
         //check for initial http:// or https://
