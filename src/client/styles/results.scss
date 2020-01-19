@@ -8,7 +8,12 @@ table {
     border-radius: 3px;
     border-spacing: 5px 5px;
     box-shadow: inset 0 0 10px rgba(255, 255, 255, 0);
-    background: white;
+    //adapted from npm site :)
+    background-color: #e2f2ff;
+    background-image:
+        radial-gradient(
+            ellipse farthest-corner at 48.2% 47.9%, rgba(255, 255,255, 0.9) 0%,
+            rgba(255, 255, 255, 0.7) 49.36%, rgba(255, 255, 255, 0) 92.65%);
     padding: 5px 30px;
     margin-bottom: 20px;
     max-width: 80%;
@@ -29,7 +34,7 @@ table {
 }
 
 .positive {
-    color: #182;
+    color: #4c4;
     font-weight: bold;
 }
 
