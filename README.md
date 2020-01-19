@@ -31,8 +31,69 @@ which will download and install all required dependencies for the project. Now, 
 
 ### Running the app
 
+These instructions assume a typical use case in production mode. If you plan to further develop the files for your own purposes, then you can follow these instructions to start development mode)
 
+To compile the app in production mode(which is the most common use), simply enter the command
+
+```
+npm run build-prod
+```
+
+which will build the files for use. This creates a streamlined version of all required assets in the `dist` folder. Next, start up the server to handle incoming request by running
+
+```
+npm start
+```
+
+This will show a number of lines of output, including
+
+```
+Example app listening on port 8080!
+```
+
+Now you're ready to open the `index.html` file in your browser, and submit a URL containing an article for analysis!
+
+#### Development Mode
+
+Most users will not require running the app in development mode, but if you are a developer who intends on creating further functionality in the app, then you may be interested in running the project in development mode. First, use terminal or the command line to access the project directory, then enter
+
+```
+npm run build-dev
+```
+
+Unlike the production build command, this will automatically launch the client app in your default browser. Because of the continued logging in the terminal, you'll need to open a second terminal window to start your development server:
+
+```
+npm start
+```
+
+That's all, your application is ready to accept incoming requests!
+
+![Display of a successful project setup showing purple-pink frog logo, project title, and basic input form]("./img/Project-Screenshot.png")
+
+## Tests
+
+Testing is handled with the [Jest JavaScript Testing](https://jestjs.io/en/) framework, and all included tests can be run with the command
+
+```
+npm test
+```
+
+![Console display showing 8 tests in 2 suites successfully completing in 3.102s]("./img/Tests.png")
 
 ## Deploying
 
-A great step to take with your finished project would be to deploy it! Unfortunately its a bit out of scope for me to explain too much about how to do that here, but checkout [Netlify](https://www.netlify.com/) or [Heroku](https://www.heroku.com/) for some really intuitive free hosting options.
+If you'd like to deploy a version of this app online easily, checkout [Netlify](https://www.netlify.com/) or [Heroku](https://www.heroku.com/) for some really intuitive free hosting options!
+
+## Built With
+
+[Aylien](https://aylien.com/text-api/) - Natural Language Processing API
+[Node.js](https://nodejs.org) - Non-browser JavaScript runtime
+[webpack](https://webpack.js.org/) - Code bundling and configuration
+[express](https://expressjs.com/) - Web server for Node.js
+[Jest](https://jestjs.io/en/) - Code testing
+
+
+## Special thanks
+
+[PurpleBooth Readme Template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
