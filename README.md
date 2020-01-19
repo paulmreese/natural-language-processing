@@ -96,6 +96,8 @@ If you'd like to deploy a version of this app online easily, checkout [Netlify](
 
 [express](https://expressjs.com/) - Web server for Node.js
 
+[Sass](https://sass-lang.com) - Simplified CSS
+
 [Jest](https://jestjs.io/en/) - Code testing
 
 
