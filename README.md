@@ -117,7 +117,7 @@ npm start
 
 That's all, your application is ready to accept incoming requests!
 
-![Display of a successful project setup showing purple-pink frog logo, project title, and basic input form]("./img/Project-Screenshot.png")
+![Display of a successful project setup showing purple-pink frog logo, project title, and basic input form]("https://github.com/paulmreese/natural-language-processing/Project-Screenshot.png")
 
 ## Tests
 
@@ -127,7 +127,7 @@ Testing is handled with the [Jest JavaScript Testing](https://jestjs.io/en/) fra
 npm test
 ```
 
-![Console display showing 8 tests in 2 suites successfully completing in 3.102s]("./img/Tests.png")
+![Console display showing 8 tests in 2 suites successfully completing in 3.102s]("https://github.com/paulmreese/natural-language-processing/Tests.png")
 
 ## Deploying
 
