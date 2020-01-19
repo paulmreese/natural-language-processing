@@ -4,7 +4,7 @@ This repo contains an app designed to extract an article from a given link, then
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine. See [deployment](####development-mode) for notes on how to deploy the project for development and testing purposes.
+These instructions will get you a copy of the project up and running on your local machine. See [deployment](#development-mode) for notes on how to deploy the project for development and testing purposes.
 
 ### Prerequisites
 
